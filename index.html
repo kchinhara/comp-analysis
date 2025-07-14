@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Intelligence Report - July 13, 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .status-banner {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.6em;
+            color: #34495e;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .ads-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+        }
+        
+        .ads-table th {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        
+        .ads-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+            line-height: 1.4;
+        }
+        
+        .ads-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .ads-table tr:hover {
+            background-color: #e8f4fd;
+            transition: background-color 0.3s ease;
+        }
+        
+        .position-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.85em;
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .position-1 { background: #e74c3c; }
+        .position-2 { background: #f39c12; }
+        .position-3 { background: #f1c40f; }
+        .position-4 { background: #95a5a6; }
+        
+        .domain-cell {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9em;
+            max-width: 120px;
+            word-break: break-word;
+        }
+        
+        .title-cell {
+            font-weight: 600;
+            color: #27ae60;
+            max-width: 250px;
+            line-height: 1.3;
+        }
+        
+        .description-cell {
+            max-width: 300px;
+            line-height: 1.4;
+            color: #555;
+        }
+        
+        .url-cell {
+            max-width: 200px;
+            font-size: 0.8em;
+            color: #666;
+            word-break: break-all;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .insight-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .insight-card h4 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .pattern-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .pattern-percentage {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .competitive-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .competitor-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+        }
+        
+        .competitor-name {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .competitor-stats {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .positioning-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .opportunities {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            color: #2d3436;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .opportunities h4 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .threats {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .threats h4 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .recommendations {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .recommendations h4 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .recommendations ul, .opportunities ul, .threats ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .recommendations li, .opportunities li, .threats li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            line-height: 1.5;
+        }
+        
+        .recommendations li:before, .opportunities li:before, .threats li:before {
+            content: "▶";
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+        
+        .keyword-group {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .keyword-header {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .ads-table {
+                font-size: 0.8em;
+            }
+            
+            .ads-table th,
+            .ads-table td {
+                padding: 10px 5px;
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Competitive Intelligence Report</h1>
+            <div class="subtitle">Cherry Picker Market Analysis - July 13, 2025</div>
+        </div>
+        
+        <div class="status-banner">
+            ✅ Successfully analyzed 17 top position ads | 📊 5 keywords tracked | 🏆 7 unique competitors identified
+        </div>
+        
+        <div class="dashboard">
+            <div class="stat-card">
+                <div class="stat-number">17</div>
+                <div class="stat-label">Total Top Ads</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Unique Competitors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Keywords Tracked</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Landing Pages</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📊 Top Position Ads Analysis</h2>
+                
+                <div class="keyword-group">
+                    <div class="keyword-header">🔍 "hiring a cherry picker" - 3 Top Ads</div>
+                    <table class="ads-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Landing URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="position-badge position-1">1</span></td>
+                                <td class="domain-cell">www.rockthorn.co.uk</td>
+                                <td class="title-cell">Self-Drive Cherry Picker Hire - Low Cost Hire - Nationwide</td>
+                                <td class="description-cell">Quality & Low Cost Hire For The Trade - Hire From Experts. Fast Delivery. Contact Us Today</td>
+                                <td class="url-cell">https://www.rockthorn.co.uk/product-category/powered-access-and-cherry-pickers/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-2">2</span></td>
+                                <td class="domain-cell">get.hodgsonroofing.com</td>
+                                <td class="title-cell">Local Cherry Picker Hire - Best-Value Cherry Picker Rates</td>
+                                <td class="description-cell">Hassle-Free Cherry Picker Hire for Ldn, Herts, Bucks & Berks Projects. Get a Quote Today.</td>
+                                <td class="url-cell">https://get.hodgsonroofing.com/cherry-picker-hire/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-3">3</span></td>
+                                <td class="domain-cell">www.hss.com</td>
+                                <td class="title-cell">Cherry Picker Hire & Boom Lifts Hire - HSS</td>
+                                <td class="description-cell">Looking to hire a cherry picker? HSS offers range of electric & bi-energy boom lifts to access a range of heights for several jobs indoors or outdoors.</td>
+                                <td class="url-cell">https://www.hss.com/hire/c/powered-access/boom-lifts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="keyword-group">
+                    <div class="keyword-header">🏗️ "mewp hire" - 3 Top Ads</div>
+                    <table class="ads-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Landing URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="position-badge position-1">1</span></td>
+                                <td class="domain-cell">www.cherryboomhire.co.uk</td>
+                                <td class="title-cell">MEWP Rental</td>
+                                <td class="description-cell">MEWP For Hire — More Versatile Than Other Working At Height Options Such As Scaffolding, Or Scissor Lifts. Fully Certified & Insured Operating In London, Essex, Hertfordshire, Cambridge & Suffolk.</td>
+                                <td class="url-cell">https://www.cherryboomhire.co.uk/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-2">2</span></td>
+                                <td class="domain-cell">www.hss.com</td>
+                                <td class="title-cell">Cherry Picker Hire & Boom Lifts Hire - HSS</td>
+                                <td class="description-cell">Looking to hire a cherry picker? HSS offers range of electric & bi-energy boom lifts to access a range of heights for several jobs indoors or outdoors. Exclusive Online Prices.</td>
+                                <td class="url-cell">https://www.hss.com/hire/c/powered-access/boom-lifts</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-3">3</span></td>
+                                <td class="domain-cell">www.rockthorn.co.uk</td>
+                                <td class="title-cell">MEWP Hire - Low Cost Hire - Nationwide</td>
+                                <td class="description-cell">Quality & Low Cost Hire For The Trade - Hire From Experts. Fast Delivery. Contact Us Today</td>
+                                <td class="url-cell">https://www.rockthorn.co.uk/product-category/powered-access-and-cherry-pickers/</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="keyword-group">
+                    <div class="keyword-header">📍 "cherry picker hire near me" - 4 Top Ads</div>
+                    <table class="ads-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Landing URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="position-badge position-1">1</span></td>
+                                <td class="domain-cell">get.hodgsonroofing.com</td>
+                                <td class="title-cell">Local Cherry Picker Hire - Cherry Picker Hire Near Me</td>
+                                <td class="description-cell">Hassle-Free Cherry Picker Hire for Ldn, Herts, Bucks & Berks Projects. Get a Quote Today. Fast Cherry Picker Hire & Certified Expert...</td>
+                                <td class="url-cell">https://get.hodgsonroofing.com/cherry-picker-hire/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-2">2</span></td>
+                                <td class="domain-cell">www.rockthorn.co.uk</td>
+                                <td class="title-cell">Self-Drive Cherry Picker Hire - Low Cost Hire - Nationwide</td>
+                                <td class="description-cell">Quality & Low Cost Hire For The Trade - Hire From Experts. Fast Delivery. Contact Us Today</td>
+                                <td class="url-cell">https://www.rockthorn.co.uk/product-category/powered-access-and-cherry-pickers/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-3">3</span></td>
+                                <td class="domain-cell">www.coppard.co.uk</td>
+                                <td class="title-cell">Tracked Cherry Picker Hire - Self-Drive Or Coppard Operated</td>
+                                <td class="description-cell">Efficient & Reliable Tracked Cherry Picker Hire. Our Huge Range Suits All Needs. Call Now.</td>
+                                <td class="url-cell">https://www.coppard.co.uk/collections/access-equipment/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-4">4</span></td>
+                                <td class="domain-cell">www.hss.com</td>
+                                <td class="title-cell">Cherry Picker Hire & Boom Lifts Hire - HSS</td>
+                                <td class="description-cell">Looking to hire a cherry picker? HSS offers range of electric & bi-energy boom lifts to access a range of heights for several jobs indoors or outdoors.</td>
+                                <td class="url-cell">https://www.hss.com/hire/c/powered-access/boom-lifts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="keyword-group">
+                    <div class="keyword-header">💰 "cherry picker hire cost" - 4 Top Ads</div>
+                    <table class="ads-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Landing URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="position-badge position-1">1</span></td>
+                                <td class="domain-cell">get.hodgsonroofing.com</td>
+                                <td class="title-cell">Cherry Picker Hire Daily Cost - Cherry Picker Hire Prices 2025</td>
+                                <td class="description-cell">Hassle-Free Cherry Picker Hire for Ldn, Herts, Bucks & Berks Projects. Get a Quote Today. Fast Cherry Picker Hire & Certified Expert...</td>
+                                <td class="url-cell">https://get.hodgsonroofing.com/cherry-picker-hire/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-2">2</span></td>
+                                <td class="domain-cell">londoncherrypickerhire.com</td>
+                                <td class="title-cell">Min. Hire Starts At Half A Day - Cherry Picker Hire Cost</td>
+                                <td class="description-cell">Business identity verified—Hire A Cherry Picker Today. Low Cost, Short Term Hires Available. Call Today For A Quote.</td>
+                                <td class="url-cell">https://londoncherrypickerhire.com/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-3">3</span></td>
+                                <td class="domain-cell">www.hss.com</td>
+                                <td class="title-cell">Cherry Picker Hire & Boom Lifts Hire - HSS</td>
+                                <td class="description-cell">Business identity verified—Looking to hire a cherry picker? HSS offers range of electric & bi-energy boom lifts to access a range of heights for several jobs indoors or outdoors.</td>
+                                <td class="url-cell">https://www.hss.com/hire/c/powered-access/boom-lifts</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-4">4</span></td>
+                                <td class="domain-cell">www.nationaltoolhireshops.co.uk</td>
+                                <td class="title-cell">Cherry Picker Rental - We'll Match Any Price</td>
+                                <td class="description-cell">Business identity verified—Choose from a broad selection of tools, including ladders, skips, mixers, and excavators.</td>
+                                <td class="url-cell">https://www.nationaltoolhireshops.co.uk/category/cherry-picker-hire/</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="keyword-group">
+                    <div class="keyword-header">🏢 "cherry picker rental" - 3 Top Ads</div>
+                    <table class="ads-table">
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Domain</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Landing URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="position-badge position-1">1</span></td>
+                                <td class="domain-cell">get.hodgsonroofing.com</td>
+                                <td class="title-cell">Cherry Picker Rental</td>
+                                <td class="description-cell">Local Cherry Picker Hire — Hassle-Free Cherry Picker Hire for Ldn, Herts, Bucks & Berks Projects. Get a Quote Today. Fast Cherry Picker Hire & Certified Expert Operators in London, Herts & Berks. Book Now.</td>
+                                <td class="url-cell">https://get.hodgsonroofing.com/cherry-picker-hire/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-2">2</span></td>
+                                <td class="domain-cell">www.rockthorn.co.uk</td>
+                                <td class="title-cell">Self-Drive Cherry Picker Hire - Low Cost Hire - Nationwide</td>
+                                <td class="description-cell">Quality & Low Cost Hire For The Trade - Hire From Experts. Fast Delivery. Contact Us Today. Short & Long Term Trade Hire. Quality Machinery & Knowledgeable Customer Service. Call Now.</td>
+                                <td class="url-cell">https://www.rockthorn.co.uk/product-category/powered-access-and-cherry-pickers/</td>
+                            </tr>
+                            <tr>
+                                <td><span class="position-badge position-3">3</span></td>
+                                <td class="domain-cell">www.nationaltoolhireshops.co.uk</td>
+                                <td class="title-cell">Cherry Pickers Near You | Same Day Delivery Options</td>
+                                <td class="description-cell">Choose from a broad selection of tools, including ladders, skips, mixers, and excavators.</td>
+                                <td class="url-cell">https://www.nationaltoolhireshops.co.uk/category/cherry-picker-hire/</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🧠 Messaging Strategy Intelligence</h2>
+                
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h4>💰 Pricing Transparency</h4>
+                        <div class="pattern-stats">
+                            <span>Most Dominant Theme</span>
+                            <span class="pattern-percentage">65%</span>
+                        </div>
+                        <p><strong>11 out of 17 ads</strong> emphasize pricing, costs, quotes, or value propositions. This indicates price sensitivity in the market and opportunity for transparent pricing strategies.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>⚡ Speed & Convenience</h4>
+                        <div class="pattern-stats">
+                            <span>Second Priority</span>
+                            <span class="pattern-percentage">59%</span>
+                        </div>
+                        <p><strong>10 out of 17 ads</strong> highlight same-day delivery, fast service, or convenience factors. Speed is a major competitive differentiator.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>📍 Geographic Targeting</h4>
+                        <div class="pattern-stats">
+                            <span>Market Localization</span>
+                            <span class="pattern-percentage">59%</span>
+                        </div>
+                        <p><strong>10 out of 17 ads</strong> include location-specific messaging (London, nationwide, local, near me). Geographic positioning is crucial.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>🛡️ Safety & Qualifications</h4>
+                        <div class="pattern-stats">
+                            <span>Trust Building</span>
+                            <span class="pattern-percentage">53%</span>
+                        </div>
+                        <p><strong>9 out of 17 ads</strong> mention certifications, expertise, reliability, or safety. Trust is a significant factor in this industry.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>🚗 Service Model Differentiation</h4>
+                        <div class="pattern-stats">
+                            <span>Underutilized</span>
+                            <span class="pattern-percentage">29%</span>
+                        </div>
+                        <p><strong>Only 5 out of 17 ads</strong> clearly distinguish between self-drive vs operated services. Major opportunity for clearer positioning.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🏆 Competitive Positioning Matrix</h2>
+                
+                <div class="competitive-matrix">
+                    <div class="competitor-card">
+                        <div class="competitor-name">get.hodgsonroofing.com</div>
+                        <div class="competitor-stats">4 ads • Average Position: 1.3</div>
+                        <div class="competitor-stats">Keywords: hiring, near me, cost, rental</div>
+                        <div class="positioning-tag">Market Leader - Premium Service</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">www.rockthorn.co.uk</div>
+                        <div class="competitor-stats">4 ads • Average Position: 2.0</div>
+                        <div class="competitor-stats">Keywords: hiring, mewp, near me, rental</div>
+                        <div class="positioning-tag">Price Leader - Trade Focus</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">www.hss.com</div>
+                        <div class="competitor-stats">4 ads • Average Position: 3.0</div>
+                        <div class="competitor-stats">Keywords: hiring, mewp, near me, cost</div>
+                        <div class="positioning-tag">Established Brand - Equipment Range</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">www.nationaltoolhireshops.co.uk</div>
+                        <div class="competitor-stats">2 ads • Average Position: 3.5</div>
+                        <div class="competitor-stats">Keywords: cost, rental</div>
+                        <div class="positioning-tag">Price Matcher - Network Coverage</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">www.cherryboomhire.co.uk</div>
+                        <div class="competitor-stats">1 ad • Average Position: 1.0</div>
+                        <div class="competitor-stats">Keywords: mewp</div>
+                        <div class="positioning-tag">Specialist - Geographic Focus</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">londoncherrypickerhire.com</div>
+                        <div class="competitor-stats">1 ad • Average Position: 2.0</div>
+                        <div class="competitor-stats">Keywords: cost</div>
+                        <div class="positioning-tag">Local Specialist - Flexible Terms</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">www.coppard.co.uk</div>
+                        <div class="competitor-stats">1 ad • Average Position: 3.0</div>
+                        <div class="competitor-stats">Keywords: near me</div>
+                        <div class="positioning-tag">Equipment Specialist - Tracked Focus</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📈 Market Intelligence & Opportunities</h2>
+                
+                <div class="opportunities">
+                    <h4>🎯 Market Gap Analysis</h4>
+                    <ul>
+                        <li><strong>Service Model Clarity:</strong> Only 29% of ads clearly differentiate service models - major opportunity for clear self-drive vs operated positioning</li>
+                        <li><strong>Emergency/Urgent Services:</strong> Limited emphasis on 24/7 or emergency services despite infrastructure industry needs</li>
+                        <li><strong>Environmental Messaging:</strong> No competitors highlighting electric/eco-friendly options in top positions</li>
+                        <li><strong>Pricing Transparency:</strong> While 65% mention pricing, few show actual rates - opportunity for upfront pricing</li>
+                        <li><strong>Industry-Specific Targeting:</strong> Generic messaging dominates - opportunity for construction/maintenance specific positioning</li>
+                        <li><strong>Technology Integration:</strong> No mention of app-based booking or digital-first experiences</li>
+                    </ul>
+                </div>
+                
+                <div class="threats">
+                    <h4>⚠️ Competitive Threats Assessment</h4>
+                    <ul>
+                        <li><strong>Hodgson Roofing Dominance:</strong> Captures 4 top positions with average rank 1.3 - aggressive bidding strategy</li>
+                        <li><strong>Price Competition Intensifying:</strong> Multiple competitors emphasizing "low cost" and "price matching"</li>
+                        <li><strong>Geographic Saturation:</strong> London/Home Counties heavily contested by multiple players</li>
+                        <li><strong>HSS Brand Recognition:</strong> Established national brand maintaining consistent presence across keywords</li>
+                        <li><strong>Specialist Operators:</strong> Cherry Boom Hire achieving #1 position on technical "MEWP" terms</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendations">
+                    <h4>🚀 Strategic Recommendations</h4>
+                    <ul>
+                        <li><strong>Immediate: Service Model Differentiation</strong> - Create clear self-drive vs operated service messaging to capture the 71% gap</li>
+                        <li><strong>Week 1: Emergency Service Positioning</strong> - Develop 24/7/365 emergency cherry picker service messaging and landing pages</li>
+                        <li><strong>Week 2: Pricing Transparency</strong> - Implement upfront pricing calculator or rate cards on landing pages</li>
+                        <li><strong>Month 1: Geographic Expansion</strong> - Target less contested regions outside London/Home Counties corridor</li>
+                        <li><strong>Month 2: Industry-Specific Campaigns</strong> - Create construction, maintenance, and facilities management specific ad groups</li>
+                        <li><strong>Month 3: Technology Differentiation</strong> - Develop mobile booking app and digital-first customer experience</li>
+                        <li><strong>Ongoing: Monitor Hodgson Roofing</strong> - Track their bidding patterns and messaging evolution closely</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📊 Landing Page Strategy Analysis</h2>
+                
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h4>🎯 Dedicated Cherry Picker Pages</h4>
+                        <div class="pattern-stats">
+                            <span>Optimized Approach</span>
+                            <span class="pattern-percentage">43%</span>
+                        </div>
+                        <p><strong>3 out of 7 unique domains</strong> use dedicated cherry picker landing pages. Hodgson Roofing leads with keyword-specific optimization.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>📁 Category/Service Pages</h4>
+                        <div class="pattern-stats">
+                            <span>Broad Targeting</span>
+                            <span class="pattern-percentage">43%</span>
+                        </div>
+                        <p><strong>3 out of 7 domains</strong> direct traffic to broader powered access or equipment hire category pages, diluting message focus.</p>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>🏠 Homepage/Generic Pages</h4>
+                        <div class="pattern-stats">
+                            <span>Missed Opportunity</span>
+                            <span class="pattern-percentage">14%</span>
+                        </div>
+                        <p><strong>1 out of 7 domains</strong> sends traffic to generic pages, representing significant conversion opportunity loss.</p>
+                    </div>
+                </div>
+                
+                <h3>Landing Page Quality Assessment</h3>
+                <div class="competitive-matrix">
+                    <div class="competitor-card">
+                        <div class="competitor-name">✅ High-Quality Landing Pages</div>
+                        <div class="competitor-stats">get.hodgsonroofing.com/cherry-picker-hire/</div>
+                        <div class="competitor-stats">londoncherrypickerhire.com</div>
+                        <div class="positioning-tag">Dedicated + Keyword Optimized</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">⚠️ Category Pages (Optimization Opportunity)</div>
+                        <div class="competitor-stats">rockthorn.co.uk/powered-access-and-cherry-pickers/</div>
+                        <div class="competitor-stats">hss.com/hire/c/powered-access/boom-lifts</div>
+                        <div class="competitor-stats">nationaltoolhireshops.co.uk/category/cherry-picker-hire/</div>
+                        <div class="positioning-tag">Broad Category Focus</div>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-name">❌ Generic Pages (Poor Conversion)</div>
+                        <div class="competitor-stats">cherryboomhire.co.uk (homepage)</div>
+                        <div class="competitor-stats">coppard.co.uk/collections/access-equipment/</div>
+                        <div class="positioning-tag">Generic Landing Experience</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📋 Keyword Performance Matrix</h2>
+                
+                <table class="ads-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Competition Intensity</th>
+                            <th>Top Performer</th>
+                            <th>Average Position</th>
+                            <th>Opportunity Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>cherry picker hire cost</strong></td>
+                            <td><span style="color: #e74c3c;">High (4 ads)</span></td>
+                            <td>Hodgson Roofing (Pos 1)</td>
+                            <td>2.5</td>
+                            <td><span style="color: #f39c12;">Medium - Price-focused</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>cherry picker hire near me</strong></td>
+                            <td><span style="color: #e74c3c;">High (4 ads)</span></td>
+                            <td>Hodgson Roofing (Pos 1)</td>
+                            <td>2.5</td>
+                            <td><span style="color: #f39c12;">Medium - Local intent</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>hiring a cherry picker</strong></td>
+                            <td><span style="color: #f39c12;">Medium (3 ads)</span></td>
+                            <td>Rockthorn (Pos 1)</td>
+                            <td>2.0</td>
+                            <td><span style="color: #27ae60;">High - Broad commercial</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>mewp hire</strong></td>
+                            <td><span style="color: #f39c12;">Medium (3 ads)</span></td>
+                            <td>Cherry Boom Hire (Pos 1)</td>
+                            <td>2.0</td>
+                            <td><span style="color: #27ae60;">High - Technical/B2B</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>cherry picker rental</strong></td>
+                            <td><span style="color: #f39c12;">Medium (3 ads)</span></td>
+                            <td>Hodgson Roofing (Pos 1)</td>
+                            <td>2.0</td>
+                            <td><span style="color: #27ae60;">High - Alternative term</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 Action Items & Next Steps</h2>
+                
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <h4>⚡ Immediate Actions (This Week)</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">✅ Create service model differentiation ad copy</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">✅ Develop emergency/24-7 service messaging</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">✅ Implement pricing transparency on landing pages</li>
+                            <li style="padding: 5px 0;">✅ Target "hiring a cherry picker" and "mewp hire" aggressively</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>📈 Short-term Strategy (Next 30 Days)</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">🎯 Geographic expansion beyond London corridor</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">🎯 Industry-specific ad groups (construction, facilities)</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">🎯 Landing page optimization for category pages</li>
+                            <li style="padding: 5px 0;">🎯 Competitive monitoring automation setup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="insight-card">
+                        <h4>🚀 Long-term Opportunities (Next 90 Days)</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">💡 Technology differentiation (mobile booking)</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">💡 Environmental positioning (electric equipment)</li>
+                            <li style="padding: 5px 0; border-bottom: 1px solid #eee;">💡 Partnership opportunities with construction firms</li>
+                            <li style="padding: 5px 0;">💡 National expansion strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 30px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                <h3 style="margin-bottom: 15px;">📊 Key Takeaway</h3>
+                <p style="font-size: 1.2em; line-height: 1.6;">
+                    <strong>Hodgson Roofing dominates with premium service positioning</strong>, while price competition intensifies among self-drive providers. 
+                    <strong>Major opportunities exist in service model clarity, emergency services, and geographic expansion</strong> beyond the saturated London market. 
+                    The 71% gap in service model differentiation represents the largest immediate opportunity for competitive advantage.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
